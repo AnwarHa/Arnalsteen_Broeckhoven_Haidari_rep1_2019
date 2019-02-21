@@ -1,6 +1,6 @@
 package domain;
 
-public abstract class Product {
+public abstract class Product implements Comparable<Product>{
     private String name;
     private String id;
     public Product(String name, String id) {

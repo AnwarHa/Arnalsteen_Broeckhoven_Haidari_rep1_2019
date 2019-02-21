@@ -1,5 +1,8 @@
 package ui;
 
 public class Launcher {
-    Shopui shop = new Shopui();
+    public static void main(String[] args) {
+        Shopui shop = new Shopui();
+    }
+
 }
