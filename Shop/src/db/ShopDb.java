@@ -40,8 +40,7 @@ public class ShopDb {
         return productMap;
     }
 
-<<<<<<< Updated upstream
-    public List<Product> sort(){
+    public List<Product> sort() {
         final List<String> sorted = productMap.entrySet().stream()
                 .sorted(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()))
                 .map(Map.Entry::getKey)
@@ -54,10 +53,10 @@ public class ShopDb {
 
     }
 
-    public boolean write(){
+    public boolean write() {
         String uit = "\n";
-        for(Map.Entry<String,Product> m:productMap.entrySet()){
-            uit+= m.getKey()+","+m.getValue().getName();
+        for (Map.Entry<String, Product> m : productMap.entrySet()) {
+            uit += m.getKey() + "," + m.getValue().getName();
         }
         try {
             FileOutputStream fileOut = new FileOutputStream(".\\Documents\\products.txt");
@@ -66,19 +65,16 @@ public class ShopDb {
             objectOut.close();
             return true;
 
-} catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
         }
+    }
 
-
-=======
     public boolean isProductBeschikbaar(String id) {
         if (productMap.containsKey(id)) {
             return true;
         }
         return false;
     }
->>>>>>> Stashed changes
 }
