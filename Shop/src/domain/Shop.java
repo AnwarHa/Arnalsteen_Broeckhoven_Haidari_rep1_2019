@@ -1,10 +1,12 @@
 package domain;
 
+import db.ShopDb;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Shop{
-    private List<Product> productDatabase = new ArrayList<>();
+    ShopDb productDatabase = new ShopDb();
 
     public Shop(String naam) {
 
