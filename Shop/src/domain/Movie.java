@@ -2,7 +2,7 @@ package domain;
 
 public class Movie extends Product{
     public Movie(String name, String id) {
-        super(name, id);
+        super(name);
     }
 
     @Override
