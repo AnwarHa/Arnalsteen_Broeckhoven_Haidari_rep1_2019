@@ -8,10 +8,10 @@ public class Shopui {
     private Shop shop = new Shop("");
 
     public Shopui() {
-        showMenu();
+
     }
 
-    private void showMenu() {
+    public void showMenu() {
         String menu = "1. Add product\n2. Show product\n3. Show rental price\n\n0. Quit";
         int choice = -1;
         while (choice != 0) {
