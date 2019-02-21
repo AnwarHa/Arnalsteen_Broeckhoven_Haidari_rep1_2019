@@ -15,4 +15,9 @@ public class Movie extends Product{
             }
         return price;
     }
+
+    @Override
+    public int compareTo(Product o) {
+        return 0;
+    }
 }
