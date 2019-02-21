@@ -12,3 +12,4 @@ public class Game extends Product {
 }
 
 // Test
+// Ik identificeer mezelf als een klein roodharig meisje
