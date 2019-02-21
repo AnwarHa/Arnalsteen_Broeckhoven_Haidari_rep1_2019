@@ -1,12 +1,16 @@
 package db;
 
+import domain.Cd;
+import domain.Game;
+import domain.Movie;
 import domain.Product;
 
 
-import java.io.FileNotFoundException;
+<<<<<<< Updated upstream
+import java.io.*;
+=======
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+>>>>>>> Stashed changes
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,8 +59,12 @@ public class ShopDb {
 
     public boolean write() {
         String uit = "\n";
-        for (Map.Entry<String, Product> m : productMap.entrySet()) {
-            uit += m.getKey() + "," + m.getValue().getName();
+        for(Map.Entry<String,Product> m:productMap.entrySet()){
+            String instance = "";
+            if(m.getValue() instanceof Cd) instance = "cd";
+            if(m.getValue() instanceof Movie) instance = "movie";
+            if(m.getValue() instanceof Game) instance = "game";
+            uit+= instance+","+m.getKey()+","+m.getValue().getName();
         }
         try {
             FileOutputStream fileOut = new FileOutputStream(".\\Documents\\products.txt");
@@ -69,12 +77,3 @@ public class ShopDb {
             ex.printStackTrace();
             return false;
         }
-    }
-
-    public boolean isProductBeschikbaar(String id) {
-        if (productMap.containsKey(id)) {
-            return true;
-        }
-        return false;
-    }
-}
