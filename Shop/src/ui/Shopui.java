@@ -8,7 +8,6 @@ public class Shopui {
     private Shop shop = new Shop("");
 
     public Shopui() {
-
         showMenu();
     }
 
