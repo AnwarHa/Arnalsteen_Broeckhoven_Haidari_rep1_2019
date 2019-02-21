@@ -10,3 +10,5 @@ public class Game extends Product {
         return days * 3;
     }
 }
+
+// Test
