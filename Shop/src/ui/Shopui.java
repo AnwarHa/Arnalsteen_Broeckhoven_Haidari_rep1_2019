@@ -7,7 +7,7 @@ import javax.swing.*;
 public class Shopui {
     private Shop shop = new Shop("");
 
-    public Shopui(Shop shop) {
+    public Shopui() {
 
         showMenu();
     }
