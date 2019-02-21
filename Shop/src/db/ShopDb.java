@@ -39,16 +39,22 @@ public class ShopDb {
     }
 
     public List<Product> sort() {
-        final List<String> sorted = productMap.entrySet().stream()
-                .sorted(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()))
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toList());
-        // or to specify the list implementation:
-        //.collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
 
-// Output
-        sorted.forEach(System.out::println);
-
+        List<Product> unsorted = new ArrayList<>(productMap.values());
+        Product[] sorted = (Product[]) unsorted.toArray();
+        for(int i=0; i<sorted.length-1;i++){
+            if(Integer.parseInt(sorted[i].getId())>Integer.parseInt(sorted[i+1].getId())){
+                Product min = sorted[i];
+                Product more = sorted[i+1];
+                sorted[i] = more;
+                sorted[i+1] = min;
+            }
+        }
+        List<Product> sol = new ArrayList<>();
+        for(int i=0; i<sorted.length-1;i++){
+            sol.add(i,sorted[i]);
+        }
+        return sol;
     }
 
     public boolean write() {
