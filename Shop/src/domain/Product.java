@@ -6,9 +6,14 @@ public abstract class Product implements Comparable<Product>{
 
     private String name;
     private String id;
-    public Product(String name) {
-        setId();
+    public Product(String name, String id) {
+        this.id = id;
         setName(name);
+    }
+
+    public Product(String name) {
+        this(name, null);
+        setId();
     }
 
     public String getName() {
