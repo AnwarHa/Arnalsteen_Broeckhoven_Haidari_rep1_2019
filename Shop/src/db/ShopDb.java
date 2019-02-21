@@ -5,12 +5,8 @@ import domain.Game;
 import domain.Movie;
 import domain.Product;
 
-
-<<<<<<< Updated upstream
 import java.io.*;
-=======
 import java.io.FileOutputStream;
->>>>>>> Stashed changes
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,10 +39,6 @@ public class ShopDb {
         //sorteer op films, games, CD's
     }
 
-    public Map<Integer, Product> getProducten() {
-        return productMap;
-    }
-
     public List<Product> sort() {
         final List<String> sorted = productMap.entrySet().stream()
                 .sorted(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()))
@@ -62,12 +54,12 @@ public class ShopDb {
 
     public boolean write() {
         String uit = "\n";
-        for(Map.Entry<String,Product> m:productMap.entrySet()){
+        for (Map.Entry<String, Product> m : productMap.entrySet()) {
             String instance = "";
-            if(m.getValue() instanceof Cd) instance = "cd";
-            if(m.getValue() instanceof Movie) instance = "movie";
-            if(m.getValue() instanceof Game) instance = "game";
-            uit+= instance+","+m.getKey()+","+m.getValue().getName();
+            if (m.getValue() instanceof Cd) instance = "cd";
+            if (m.getValue() instanceof Movie) instance = "movie";
+            if (m.getValue() instanceof Game) instance = "game";
+            uit += instance + "," + m.getKey() + "," + m.getValue().getName();
         }
         try {
             FileOutputStream fileOut = new FileOutputStream(".\\Documents\\products.txt");
@@ -80,6 +72,7 @@ public class ShopDb {
             ex.printStackTrace();
             return false;
         }
+    }
 
     public boolean isProductBeschikbaar(String id) {
         if (productMap.containsKey(id)) {
