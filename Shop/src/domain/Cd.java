@@ -4,6 +4,9 @@ public class Cd extends Product {
     public Cd(String name, String id) {
         super(name);
     }
+    public Cd(String name){
+        super(name);
+    }
 
     @Override
     public double getPrice(int days) {

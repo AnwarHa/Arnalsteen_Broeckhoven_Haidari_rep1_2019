@@ -4,6 +4,9 @@ public class Movie extends Product{
     public Movie(String name, String id) {
         super(name);
     }
+    public Movie(String name){
+        super(name);
+    }
 
     @Override
     public double getPrice(int days){
