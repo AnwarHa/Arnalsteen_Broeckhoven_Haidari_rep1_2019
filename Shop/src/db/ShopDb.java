@@ -25,16 +25,15 @@ public class ShopDb {
         return productMap;
     }
 
-    public void addProduct(Product product) {
+    public void addProduct(String id, Product product) {
         //algoritme voor ID
-        int id = 0;
+
         if (product != null) {
-            id = productMap.size() + 1;
+
+            productMap.put(id, product);
+        } else {
+            throw new db.DbException("Product is null");
         }
-
-        String sid = "" + id;
-
-        productMap.put(sid, product);
 
         //sorteer op films, games, CD's
     }
@@ -75,11 +74,16 @@ public class ShopDb {
     }
 
     public boolean isProductBeschikbaar(String id) {
-        if (productMap.containsKey(id)) {
+        if (productMap.containsKey(id) && productMap.get(id).getLening() == false) {
             return true;
         }
         return false;
     }
 
+    public void setProductOpUitgeleend(String id){
+        if (productMap.get(id) != null){
+            productMap.get(id).setLening(true);
+        }
 
+    }
 }
