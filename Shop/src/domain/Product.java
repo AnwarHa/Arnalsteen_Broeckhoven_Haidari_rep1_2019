@@ -29,7 +29,7 @@ public abstract class Product implements Comparable<Product>{
     }
 
     private void setId() {
-        static final AtomicLong NEXT_ID = new AtomicLong(0);
+        final AtomicLong NEXT_ID = new AtomicLong(0);
          id= Long.toString(NEXT_ID.getAndIncrement());
 
     }
