@@ -8,7 +8,7 @@ public class Shopui {
     private Shop shop = new Shop("");
 
     public Shopui(Shop shop) {
-        this.shop = shop;
+
         showMenu();
     }
 
