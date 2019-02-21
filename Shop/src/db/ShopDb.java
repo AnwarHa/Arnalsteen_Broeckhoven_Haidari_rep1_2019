@@ -21,18 +21,17 @@ public class ShopDb {
         productMap = new HashMap<>();
     }
 
-<<<<<<< Updated upstream
-    public void addProduct(Product product){
-=======
+
     public void addProduct(Product product) {
->>>>>>> Stashed changes
         //algoritme voor ID
         int id = 0;
         if (product != null) {
             id = productMap.size() + 1;
         }
 
-        productMap.put(product);
+        String sid = "" + id;
+
+        productMap.put(sid, product);
 
         //sorteer op films, games, CD's
     }
