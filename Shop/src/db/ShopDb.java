@@ -13,22 +13,31 @@ import java.util.Map;
 public class ShopDb {
     private Map<String, Product> productMap;
 
-    public ShopDb(){
+    public ShopDb() {
         productMap = new HashMap<>();
     }
 
+<<<<<<< Updated upstream
     public void addProduct(Product product){
+=======
+    public void addProduct(Product product) {
+>>>>>>> Stashed changes
         //algoritme voor ID
+        int id = 0;
+        if (product != null) {
+            id = productMap.size() + 1;
+        }
 
         productMap.put(id, product);
 
         //sorteer op films, games, CD's
     }
 
-    public Map<Integer, Product> getProducten(){
+    public Map<Integer, Product> getProducten() {
         return productMap;
     }
 
+<<<<<<< Updated upstream
     public List<Product> sort(){
         List<Product> sorted = new ArrayList<>();
         for(Map.Entry<String,Product> m:productMap.entrySet()){
@@ -57,4 +66,12 @@ public class ShopDb {
     }
 
 
+=======
+    public boolean isProductBeschikbaar(String id) {
+        if (productMap.containsKey(id)) {
+            return true;
+        }
+        return false;
+    }
+>>>>>>> Stashed changes
 }

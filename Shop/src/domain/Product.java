@@ -32,4 +32,5 @@ public abstract class Product implements Comparable<Product>{
     public double getPrice(int days) {
         return 0;
     }
+
 }
