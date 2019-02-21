@@ -3,12 +3,16 @@ package db;
 import domain.Product;
 
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ShopDb {
     private Map<String, Product> productMap;
@@ -28,7 +32,7 @@ public class ShopDb {
             id = productMap.size() + 1;
         }
 
-        productMap.put(id, product);
+        productMap.put(product);
 
         //sorteer op films, games, CD's
     }
@@ -39,11 +43,15 @@ public class ShopDb {
 
 <<<<<<< Updated upstream
     public List<Product> sort(){
-        List<Product> sorted = new ArrayList<>();
-        for(Map.Entry<String,Product> m:productMap.entrySet()){
+        final List<String> sorted = productMap.entrySet().stream()
+                .sorted(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()))
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+        // or to specify the list implementation:
+        //.collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
 
-        }
-        return sorted;
+// Output
+        sorted.forEach(System.out::println);
 
     }
 
@@ -59,11 +67,11 @@ public class ShopDb {
             objectOut.close();
             return true;
 
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return false;
+} catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-    }
 
 
 =======
