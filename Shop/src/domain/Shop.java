@@ -13,17 +13,18 @@ public class Shop{
     }
 
     public List<Product> getProducts() {
-        return productDatabase;
+        List<Product> list = new ArrayList<Product>(productDatabase.getProductMap().values());
+        return list;
     }
 
     public void addProduct(Product product) {
-        productDatabase.add(product);
+        getProducts().add(product);
     }
 
     public double getPrice(String productName, int days) {
         if(productName==null||productName.isEmpty()) throw new IllegalArgumentException("name of product is empty or doesn't exist");
         double price = 0;
-        for(Product p : productDatabase){
+        for(Product p : getProducts()){
             if(p.getName().equals(productName)){
                 price = p.getPrice(days);
             }
@@ -34,7 +35,7 @@ public class Shop{
     public Product getProduct(String productName) {
         if(productName==null||productName.isEmpty()) throw new IllegalArgumentException("name of product is empty or doesn't exist");
         Product product = null;
-        for(Product p : productDatabase){
+        for(Product p : getProducts()){
             if(p.getName().equals(productName)){
                 product = p;
             }

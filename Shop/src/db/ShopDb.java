@@ -25,6 +25,9 @@ public class ShopDb {
         productMap = new HashMap<>();
     }
 
+    public Map<String, Product> getProductMap() {
+        return productMap;
+    }
 
     public void addProduct(Product product) {
         //algoritme voor ID
@@ -77,3 +80,13 @@ public class ShopDb {
             ex.printStackTrace();
             return false;
         }
+
+    public boolean isProductBeschikbaar(String id) {
+        if (productMap.containsKey(id)) {
+            return true;
+        }
+        return false;
+    }
+
+
+}
