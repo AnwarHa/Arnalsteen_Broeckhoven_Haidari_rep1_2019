@@ -3,6 +3,8 @@ package db;
 import domain.Product;
 
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,6 +36,24 @@ public class ShopDb {
         }
         return sorted;
 
+    }
+
+    public boolean write(){
+        String uit = "\n";
+        for(Map.Entry<String,Product> m:productMap.entrySet()){
+            uit+= m.getKey()+","+m.getValue().getName();
+        }
+        try {
+            FileOutputStream fileOut = new FileOutputStream(".\\Documents\\products.txt");
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            objectOut.writeObject(uit);
+            objectOut.close();
+            return true;
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
     }
 
 
