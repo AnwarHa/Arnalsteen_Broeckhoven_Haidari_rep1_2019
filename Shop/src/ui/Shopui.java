@@ -30,22 +30,21 @@ public class Shopui {
 
 
     private void showPrice(Shop shop) {
-        String name = JOptionPane.showInputDialog("Enter the id:");
-        int days = Integer.parseInt(JOptionPane.showInputDialog("Enter the id:"));
+        String name = JOptionPane.showInputDialog("Enter the name:");
+        int days = Integer.parseInt(JOptionPane.showInputDialog("Enter amount of days:"));
         JOptionPane.showMessageDialog(null, "price: " +shop.getPrice(name,days) );
     }
 
     private void addProduct(Shop shop) {
-        String name = JOptionPane.showInputDialog("Enter the id:");
-        String id = JOptionPane.showInputDialog("Enter the id:");
+        String name = JOptionPane.showInputDialog("Enter the name:");
         String soort = JOptionPane.showInputDialog("Enter the kind of product:");
         Product p = null;
         try{
             if(soort==null||soort.isEmpty()) throw new IllegalArgumentException("sort is invalid");
             switch (soort.trim().toLowerCase()){
-                case ("cd"): p = new Cd(name,id);
-                case ("movie"): p = new Movie(name,id);
-                case ("game"): p = new Game(name,id);
+                case ("cd"): p = new Cd(name);
+                case ("movie"): p = new Movie(name);
+                case ("game"): p = new Game(name);
             }
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage() );

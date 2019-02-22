@@ -8,13 +8,13 @@ public abstract class Product implements Comparable<Product>{
     private String id;
     private boolean uitgeleend;
     public Product(String name, String id) {
-        this.id = id;
+        setId(id);
         setName(name);
     }
 
     public Product(String name) {
-        this(name, null);
-        setId();
+        this(name,null);
+
     }
 
     public String getName() {
@@ -30,9 +30,13 @@ public abstract class Product implements Comparable<Product>{
         return id;
     }
 
-    private void setId() {
-        final AtomicLong NEXT_ID = new AtomicLong(0);
-         id= Long.toString(NEXT_ID.getAndIncrement());
+    private void setId(String id) {
+        if(id==null||id.isEmpty()) {
+            final AtomicLong NEXT_ID = new AtomicLong(0);
+            id = Long.toString(NEXT_ID.getAndIncrement());
+        }else{
+            this.id=id;
+        }
 
     }
 
