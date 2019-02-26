@@ -7,12 +7,7 @@ import domain.Product;
 
 import java.io.*;
 import java.io.FileOutputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class ShopDb {
     private Map<String, Product> productMap;
@@ -26,11 +21,10 @@ public class ShopDb {
     }
 
     public void addProduct(String id, Product product) {
-        //algoritme voor ID
-
         if (product != null) {
 
             productMap.put(id, product);
+            write();
         } else {
             throw new db.DbException("Product is null");
         }
@@ -67,7 +61,7 @@ public class ShopDb {
             uit += instance + "," + m.getKey() + "," + m.getValue().getName();
         }
         try {
-            FileOutputStream fileOut = new FileOutputStream(".\\Documents\\products.txt");
+            FileOutputStream fileOut = new FileOutputStream("C:\\Users\\Kalimath\\Documents\\Documents\\products.txt");
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(uit);
             objectOut.close();
@@ -77,6 +71,22 @@ public class ShopDb {
             ex.printStackTrace();
             return false;
         }
+    }
+
+    //broken
+    public void read() {
+
+        try {
+            Scanner s = new Scanner(new File("C:\\Users\\Kalimath\\Documents\\Documents\\products.txt"));
+            ArrayList<String> list = new ArrayList<String>();
+            while (s.hasNext()){
+                list.add(s.next());
+            }
+            s.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public boolean isProductBeschikbaar(String id) {
@@ -92,4 +102,19 @@ public class ShopDb {
         }
 
     }
+
+
+        @Override
+        public String toString() {
+            String uit = "\n";
+            for (Map.Entry<String, Product> m : getProductMap().entrySet()) {
+                String instance = "";
+                if (m.getValue() instanceof Cd) instance = "cd";
+                if (m.getValue() instanceof Movie) instance = "movie";
+                if (m.getValue() instanceof Game) instance = "game";
+                uit += instance + "," + m.getKey() + "," + m.getValue().getName();
+            }
+            return uit;
+        }
+
 }

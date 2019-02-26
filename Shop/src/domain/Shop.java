@@ -3,13 +3,15 @@ package domain;
 import db.ShopDb;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Shop{
     ShopDb productDatabase = new ShopDb();
 
-    public Shop(String naam) {
 
+    public Shop(String naam) {
     }
 
     public List<Product> getProducts() {
@@ -18,7 +20,7 @@ public class Shop{
     }
 
     public void addProduct(Product product) {
-        getProducts().add(product);
+        productDatabase.addProduct(product.getId(),product);
     }
 
     public double getPrice(String productName, int days) {
@@ -41,6 +43,11 @@ public class Shop{
             }
         }
         return product;
+    }
+
+    @Override
+    public String toString() {
+      return "Producten in shop:" +productDatabase.toString();
     }
 
     public void close(){
