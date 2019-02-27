@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 
 public abstract class Product implements Comparable<Product>{
@@ -33,8 +34,8 @@ public abstract class Product implements Comparable<Product>{
 
     private void setId(String id) {
         if(id==null||id.isEmpty()) {
-            final AtomicLong NEXT_ID = new AtomicLong(700);
-            this.id = Long.toString(NEXT_ID.incrementAndGet());
+            this.id = Integer.toString(new Random().nextInt(2000000));
+
         }else{
             this.id=id;
         }

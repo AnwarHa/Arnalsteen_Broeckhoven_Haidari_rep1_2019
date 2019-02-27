@@ -12,6 +12,7 @@ public class Shop{
 
 
     public Shop(String naam) {
+        productDatabase.read();
     }
 
     public List<Product> getProducts() {
@@ -47,7 +48,7 @@ public class Shop{
 
     @Override
     public String toString() {
-      return "Producten in shop:" +productDatabase.toString();
+      return "Producten in shop:\n" +productDatabase.toString();
     }
 
     public void close(){

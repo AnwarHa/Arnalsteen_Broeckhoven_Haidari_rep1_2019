@@ -11,9 +11,13 @@ import java.util.*;
 
 public class ShopDb {
     private Map<String, Product> productMap;
+    private String path;
+    File productFile;
 
     public ShopDb() {
         productMap = new HashMap<>();
+        path ="C:\\Users\\Kalimath\\Documents\\products.txt";
+        productFile = new File(path);
     }
 
     public Map<String, Product> getProductMap() {
@@ -22,7 +26,6 @@ public class ShopDb {
 
     public void addProduct(String id, Product product) {
         if (product != null) {
-
             productMap.put(id, product);
             write();
         } else {
@@ -61,7 +64,7 @@ public class ShopDb {
             uit += instance + "," + m.getKey() + "," + m.getValue().getName();
         }
         try {
-            FileOutputStream fileOut = new FileOutputStream("C:\\Users\\Kalimath\\Documents\\Documents\\products.txt");
+            FileOutputStream fileOut = new FileOutputStream(productFile);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(uit);
             objectOut.close();
@@ -73,18 +76,28 @@ public class ShopDb {
         }
     }
 
-    //broken
     public void read() {
 
         try {
-            Scanner s = new Scanner(new File("C:\\Users\\Kalimath\\Documents\\Documents\\products.txt"));
-            ArrayList<String> list = new ArrayList<String>();
-            while (s.hasNext()){
-                list.add(s.next());
+
+            Scanner scannerFile = new Scanner(productFile);
+            while (scannerFile.hasNextLine()) {
+                Scanner scannerLijn = new Scanner(scannerFile.nextLine());
+                Product product =null;
+                String uid = scannerLijn.next();
+                scannerLijn.useDelimiter(",");
+                System.out.println(uid);
+                String instance = scannerLijn.next();
+                String name = scannerLijn.next();
+                switch (instance){
+                    case ("cd"): product = new Cd(name,uid); break;
+                    case ("movie"): product = new Movie(name,uid); break;
+                    case ("game"): product = new Game(name,uid); break;
+                }
+                productMap.put(uid,product);
             }
-            s.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            throw new DbException("Fout bij het inlezen: "+e.getMessage());
         }
 
     }
@@ -106,14 +119,19 @@ public class ShopDb {
 
         @Override
         public String toString() {
-            String uit = "\n";
+            String uit = "";
+        if(!productMap.isEmpty()) {
+
             for (Map.Entry<String, Product> m : getProductMap().entrySet()) {
                 String instance = "";
-                if (m.getValue() instanceof Cd) instance = "cd";
-                if (m.getValue() instanceof Movie) instance = "movie";
-                if (m.getValue() instanceof Game) instance = "game";
-                uit += instance + "," + m.getKey() + "," + m.getValue().getName();
+                if (m.getValue() instanceof Cd) instance = "(cd)";
+                if (m.getValue() instanceof Movie) instance = "(movie)";
+                if (m.getValue() instanceof Game) instance = "(game)";
+                uit += m.getKey() + ": " + m.getValue().getName() + " " + instance;
             }
+        }else{
+            uit+= "No products yet";
+        }
             return uit;
         }
 
