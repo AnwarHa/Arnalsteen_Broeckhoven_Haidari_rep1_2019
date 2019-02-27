@@ -17,4 +17,9 @@ public class Cd extends Product {
     public int compareTo(Product o) {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+"(CD)";
+    }
 }

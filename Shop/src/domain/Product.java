@@ -25,7 +25,8 @@ public abstract class Product implements Comparable<Product>{
 
 
     private void setName(String name) {
-        this.name = name;
+        if(name==null||name.isEmpty()) throw new IllegalArgumentException("name is empty");
+        this.name = name.trim().toLowerCase();
     }
 
     public String getId() {
@@ -34,7 +35,7 @@ public abstract class Product implements Comparable<Product>{
 
     private void setId(String id) {
         if(id==null||id.isEmpty()) {
-            this.id = Integer.toString(new Random().nextInt(2000000));
+            this.id = Integer.toString(new Random().nextInt(80));
 
         }else{
             this.id=id;
@@ -54,4 +55,8 @@ public abstract class Product implements Comparable<Product>{
     }
 
 
+    @Override
+    public String toString() {
+        return '\n'+id + ": " + name + " ";
+    }
 }

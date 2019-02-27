@@ -27,6 +27,7 @@ public class ShopDb {
     public void addProduct(String id, Product product) {
         if (product != null) {
             productMap.put(id, product);
+
             write();
         } else {
             throw new db.DbException("Product is null");
@@ -38,7 +39,10 @@ public class ShopDb {
     public List<Product> sort() {
 
         List<Product> unsorted = new ArrayList<>(productMap.values());
-        Product[] sorted = (Product[]) unsorted.toArray();
+        Product[] sorted = new Product[unsorted.size()];
+        for(int i=0; i<unsorted.size()-1;i++){
+           sorted[i] = unsorted.get(i);
+        }
         for(int i=0; i<sorted.length-1;i++){
             if(Integer.parseInt(sorted[i].getId())>Integer.parseInt(sorted[i+1].getId())){
                 Product min = sorted[i];
@@ -54,81 +58,70 @@ public class ShopDb {
         return sol;
     }
 
-    public boolean write() {
+    private void write() {
         String uit = "\n";
         for (Map.Entry<String, Product> m : productMap.entrySet()) {
             String instance = "";
             if (m.getValue() instanceof Cd) instance = "cd";
             if (m.getValue() instanceof Movie) instance = "movie";
             if (m.getValue() instanceof Game) instance = "game";
-            uit += instance + "," + m.getKey() + "," + m.getValue().getName();
+            uit += instance + "," + m.getKey() + "," + m.getValue().getName()+"\n";
         }
         try {
             FileOutputStream fileOut = new FileOutputStream(productFile);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(uit);
             objectOut.close();
-            return true;
 
         } catch (Exception ex) {
             ex.printStackTrace();
-            return false;
         }
     }
 
     public void read() {
 
         try {
-
             Scanner scannerFile = new Scanner(productFile);
             while (scannerFile.hasNextLine()) {
-                Scanner scannerLijn = new Scanner(scannerFile.nextLine());
-                Product product =null;
-                String uid = scannerLijn.next();
-                scannerLijn.useDelimiter(",");
+
+                Product product = null;
+                String uid = Integer.toString(scannerFile.nextInt());
+                scannerFile.useDelimiter(",");
                 System.out.println(uid);
-                String instance = scannerLijn.next();
-                String name = scannerLijn.next();
-                switch (instance){
-                    case ("cd"): product = new Cd(name,uid); break;
-                    case ("movie"): product = new Movie(name,uid); break;
-                    case ("game"): product = new Game(name,uid); break;
+                String instance = scannerFile.next();
+                String name = scannerFile.next();
+                switch (instance) {
+                    case ("cd"):
+                        product = new Cd(name, uid);
+                        break;
+                    case ("movie"):
+                        product = new Movie(name, uid);
+                        break;
+                    case ("game"):
+                        product = new Game(name, uid);
+                        break;
                 }
-                productMap.put(uid,product);
+                productMap.put(uid, product);
             }
         } catch (Exception e) {
-            throw new DbException("Fout bij het inlezen: "+e.getMessage());
+            throw new DbException("Fout bij het inlezen: "+e.getMessage()+e.fillInStackTrace());
         }
 
     }
-
-    public boolean isProductBeschikbaar(String id) {
-        if (productMap.containsKey(id) && productMap.get(id).getLening() == false) {
-            return true;
-        }
-        return false;
-    }
-
-    public void setProductOpUitgeleend(String id){
-        if (productMap.get(id) != null){
-            productMap.get(id).setLening(true);
-        }
-
-    }
-
-
         @Override
         public String toString() {
             String uit = "";
         if(!productMap.isEmpty()) {
 
-            for (Map.Entry<String, Product> m : getProductMap().entrySet()) {
-                String instance = "";
-                if (m.getValue() instanceof Cd) instance = "(cd)";
-                if (m.getValue() instanceof Movie) instance = "(movie)";
-                if (m.getValue() instanceof Game) instance = "(game)";
-                uit += m.getKey() + ": " + m.getValue().getName() + " " + instance;
+            for (Map.Entry<String, Product> m : productMap.entrySet()) {
+                uit+=m.getValue().toString();
+
             }
+            //with sort algorithm, like this:
+            /*for (Product m : this.sort()) {
+                uit+=m.toString();
+
+            }*/
         }else{
             uit+= "No products yet";
         }

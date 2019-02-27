@@ -28,20 +28,19 @@ public class Shop{
         if(productName==null||productName.isEmpty()) throw new IllegalArgumentException("name of product is empty or doesn't exist");
         double price = 0;
         for(Product p : getProducts()){
-            if(p.getName().equals(productName)){
+            if(p.getName().equals(productName.trim().toLowerCase())){
                 price = p.getPrice(days);
             }
         }
         return price;
     }
 
-    public Product getProduct(String productName) {
-        if(productName==null||productName.isEmpty()) throw new IllegalArgumentException("name of product is empty or doesn't exist");
+    public Product getProduct(String id) {
         Product product = null;
-        for(Product p : getProducts()){
-            if(p.getName().equals(productName)){
-                product = p;
-            }
+        if(productDatabase.getProductMap().containsKey(id)){
+            product = productDatabase.getProductMap().get(id);
+        }else{
+            throw new IllegalArgumentException("id of product is empty or doesn't exist");
         }
         return product;
     }

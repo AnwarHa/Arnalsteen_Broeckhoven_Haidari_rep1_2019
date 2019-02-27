@@ -17,7 +17,8 @@ public class Game extends Product {
     public int compareTo(Product o) {
         return 0;
     }
+    @Override
+    public String toString() {
+        return super.toString()+"(Game)";
+    }
 }
-
-// Test
-// Ik identificeer mezelf als een klein roodharig meisje
