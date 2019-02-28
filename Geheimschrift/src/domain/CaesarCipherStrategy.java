@@ -64,5 +64,5 @@ public class CaesarCipherStrategy implements CodeStrategy{
         }
         return String.valueOf(cipher);
     }
-    
+
 }
