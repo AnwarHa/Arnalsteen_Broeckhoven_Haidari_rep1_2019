@@ -5,8 +5,8 @@ public class CodeerContext {
     private CodeStrategy codeStrategy;
 
 
-    public CodeerContext(){
-
+    public CodeerContext(String text){
+        setText(text);
     }
 
     private void setText(String text){
@@ -14,7 +14,11 @@ public class CodeerContext {
     }
 
     private void encode(){
-        codeStrategy.encode(this);
+        codeStrategy.encode(this.text);
+    }
+
+    private  void decode(){
+        codeStrategy.encode(this.text);
     }
 
 }
