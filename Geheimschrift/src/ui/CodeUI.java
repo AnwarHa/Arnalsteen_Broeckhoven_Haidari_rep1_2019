@@ -1,4 +1,4 @@
-package domain;
+package ui;
 
 public class CodeUI {
 }
