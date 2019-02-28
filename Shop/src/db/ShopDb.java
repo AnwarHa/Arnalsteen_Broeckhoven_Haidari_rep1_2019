@@ -33,7 +33,7 @@ public class ShopDb {
             throw new db.DbException("Product is null");
         }
 
-        //sorteer op films, games, CD's
+        //sorteer op films, games, CD's 
     }
 
     public List<Product> sort() {
