@@ -22,13 +22,16 @@ public class CodeerContext {
     }
 
 
-
-    private void encode(){
-        codeStrategy.encode(this.text);
+    public String getText(){
+        return this.text;
     }
 
-    private  void decode(){
-        codeStrategy.encode(this.text);
+    public void encode(){
+        this.text = codeStrategy.encode(this.text);
+    }
+
+    public void decode(){
+        this.text = codeStrategy.encode(this.text);
     }
 
 }
