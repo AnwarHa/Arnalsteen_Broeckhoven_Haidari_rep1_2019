@@ -34,10 +34,6 @@ public class CodeFX extends Application {
         TextField res = new TextField ();
         Button send = new Button("Verzenden");
 
-        Label cb = new Label("Kies een algoritme: ");
-        final ComboBox algos = new ComboBox();
-        algos.getItems().addAll("Caesar", "Spiegeling", "Vigenère Cipher");
-
         // Coderen of decoderen
         Label keuzeB = new Label("Wil je coderen of decoderen");
         Button codeerB = new Button("Coderen");
@@ -45,11 +41,15 @@ public class CodeFX extends Application {
         codeerB.setOnAction(new CheckResultHandler());
         decodeerB.setOnAction(new CheckResultHandler());
 
+        Label cb = new Label("Kies een algoritme: ");
+        final ComboBox algos = new ComboBox();
+        algos.getItems().addAll("Caesar", "Spiegeling", "Vigenère Cipher");
+
         // Vbox
         VBox root = new VBox();
         root.getChildren().addAll(text, textField, send);
-        root.getChildren().addAll(keuzeB, codeerB, decodeerB);
         root.getChildren().addAll(cb, algos);
+        root.getChildren().addAll(keuzeB, codeerB, decodeerB);
         root.getChildren().addAll(resultaat, res);
         root.setSpacing(10);
 
