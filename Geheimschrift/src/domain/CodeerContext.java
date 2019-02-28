@@ -10,6 +10,9 @@ public class CodeerContext {
     }
 
     private void setText(String text){
+        if (text == null){
+            throw new IllegalArgumentException("text cannot be null");
+        }
         this.text = text;
     }
 
