@@ -32,6 +32,7 @@ public class CodeFX extends Application {
         // Keuze algoritme
         Label resultaat = new Label("Resultaat:");
         TextField res = new TextField ();
+        Button send = new Button("Verzenden");
 
         // Coderen of decoderen
         Label keuzeB = new Label("Wil je coderen of decoderen");
@@ -46,9 +47,9 @@ public class CodeFX extends Application {
 
         // Vbox
         VBox root = new VBox();
-        root.getChildren().addAll(text, textField);
-        root.getChildren().addAll(keuzeB, codeerB, decodeerB);
+        root.getChildren().addAll(text, textField, send);
         root.getChildren().addAll(cb, algos);
+        root.getChildren().addAll(keuzeB, codeerB, decodeerB);
         root.getChildren().addAll(resultaat, res);
         root.setSpacing(10);
 
