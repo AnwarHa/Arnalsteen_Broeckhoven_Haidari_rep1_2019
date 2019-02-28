@@ -68,10 +68,11 @@ public class ShopDb {
             uit += instance + "," + m.getKey() + "," + m.getValue().getName()+"\n";
         }
         try {
-            FileOutputStream fileOut = new FileOutputStream(productFile);
+            FileOutputStream fileOut = new FileOutputStream(path);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(uit);
             objectOut.close();
+            System.out.println("The "+uit.getClass()  +" was succesfully written to a file");
 
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -81,7 +82,8 @@ public class ShopDb {
     public void read() {
 
         try {
-            Scanner scannerFile = new Scanner(productFile);
+            File txt = new File(path);
+            Scanner scannerFile = new Scanner(txt);
             while (scannerFile.hasNextLine()) {
 
                 Product product = null;
