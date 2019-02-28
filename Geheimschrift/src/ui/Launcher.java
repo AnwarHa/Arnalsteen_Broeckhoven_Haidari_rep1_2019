@@ -8,7 +8,7 @@ import domain.VigenèreCipherStrategy;
 public class Launcher {
     public static void main(String[] args) {
         CodeerContext c = new CodeerContext("waarblijftdienu");
-        c.setCodeStrategy(new MirrorStrategy());
+        c.setCodeStrategy(new VigenèreCipherStrategy());
         c.encode();
         System.out.println(c.getText());
         c.decode();

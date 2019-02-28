@@ -31,7 +31,7 @@ public class CodeerContext {
     }
 
     public void decode(){
-        this.text = codeStrategy.encode(this.text);
+        this.text = codeStrategy.decode(this.text);
     }
 
 }
