@@ -17,14 +17,17 @@ public class CodeerContext {
     }
 
     public void setCodeStrategy(CodeStrategy codeStrategy){
-
+        if(codeStrategy==null) throw new IllegalArgumentException("code method is empty");
+        this.codeStrategy = codeStrategy;
     }
+
+
 
     private void encode(){
         codeStrategy.encode(this.text);
     }
 
-    private void decode(){
+    private  void decode(){
         codeStrategy.encode(this.text);
     }
 
