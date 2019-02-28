@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="b5401f8a-2960-490f-ba13-a6704e5ff1a0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Geheimschrift/domain/CodeerContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geheimschrift/domain/CodeerContext.class" afterDir="false" />
@@ -8,6 +9,13 @@
       <change beforePath="$PROJECT_DIR$/out/production/Geheimschrift/ui/Launcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geheimschrift/ui/Launcher.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domain/CodeerContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/CodeerContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domain/VigenèreCipherStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/VigenèreCipherStrategy.java" afterDir="false" />
+=======
+    <list default="true" id="03d3b572-f6c1-4459-95be-d70facd82f13" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geheimschrift/domain/CodeerContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geheimschrift/domain/CodeerContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Geheimschrift/ui/Launcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Geheimschrift/ui/Launcher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/CaesarCipherStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/CaesarCipherStrategy.java" afterDir="false" />
+>>>>>>> master
       <change beforePath="$PROJECT_DIR$/src/ui/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Launcher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,12 +23,36 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/CodeUI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="46">
+=======
+  <component name="FUSProjectUsageTrigger">
+    <session id="1761024132">
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="1" />
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="8" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/CodeUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+>>>>>>> master
               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
@@ -29,8 +61,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/Launcher.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="230">
               <caret line="10" column="56" lean-forward="true" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
+=======
+            <state relative-caret-position="363">
+              <caret line="48" column="66" selection-start-line="48" selection-start-column="66" selection-end-line="48" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/Launcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+>>>>>>> master
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,11 +122,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domain/MirrorStrategy.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="322">
               <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding>
                 <element signature="e#134#135#0" expanded="true" />
                 <element signature="e#255#256#0" expanded="true" />
+=======
+            <state relative-caret-position="336">
+              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+              <folding>
+                <element signature="e#138#139#0" expanded="true" />
+                <element signature="e#163#164#0" expanded="true" />
+                <element signature="e#470#471#0" expanded="true" />
+                <element signature="e#516#517#0" expanded="true" />
+>>>>>>> master
               </folding>
             </state>
           </provider>
@@ -113,11 +169,26 @@
       <list>
         <option value="$PROJECT_DIR$/src/domain/CaesarCipherStrategy.java" />
         <option value="$PROJECT_DIR$/src/domain/CodeerContext.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/ui/Launcher.java" />
         <option value="$PROJECT_DIR$/src/domain/VigenèreCipherStrategy.java" />
       </list>
     </option>
   </component>
+=======
+        <option value="$PROJECT_DIR$/src/ui/CodeUI.java" />
+        <option value="$PROJECT_DIR$/src/ui/Launcher.java" />
+        <option value="$PROJECT_DIR$/src/domain/CaesarCipherStrategy.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+>>>>>>> master
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -164,18 +235,25 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551367932535" />
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551367284624" />
+>>>>>>> master
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+<<<<<<< HEAD
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="domain" />
     </key>
+=======
+>>>>>>> master
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -220,11 +298,16 @@
       <option name="presentableId" value="Default" />
       <updated>1551361911959</updated>
       <workItem from="1551361913496" duration="721000" />
+<<<<<<< HEAD
       <workItem from="1551362804132" duration="5105000" />
+=======
+      <workItem from="1551362804132" duration="426000" />
+>>>>>>> master
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="5826000" />
   </component>
   <component name="ToolWindowManager">
@@ -232,16 +315,32 @@
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2521322" />
+=======
+    <option name="totallyTimeSpent" value="671000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2557047" />
+>>>>>>> master
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Messages" weight="0.32998884" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32998884" />
+=======
+      <window_info anchor="bottom" id="Messages" weight="0.32907802" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32907802" />
+>>>>>>> master
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -263,6 +362,7 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/domain/MirrorStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -317,6 +417,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/ui/CodeUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/Launcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -332,8 +451,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/VigenèreCipherStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="46">
           <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="35" />
+=======
+        <state relative-caret-position="363">
+          <caret line="48" column="66" selection-start-line="48" selection-start-column="66" selection-end-line="48" selection-end-column="66" />
+>>>>>>> master
         </state>
       </provider>
     </entry>
