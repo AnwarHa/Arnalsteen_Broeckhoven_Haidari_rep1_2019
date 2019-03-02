@@ -1,17 +1,9 @@
 package ui;
 
-import domain.CaesarCipherStrategy;
-import domain.CodeerContext;
-import domain.MirrorStrategy;
-import domain.VigenèreCipherStrategy;
+import javafx.application.Application;
 
 public class Launcher {
     public static void main(String[] args) {
-        CodeerContext c = new CodeerContext("waarblijftdienu");
-        c.setCodeStrategy(new VigenèreCipherStrategy());
-        c.encode();
-        System.out.println(c.getText());
-        c.decode();
-        System.out.println(c.getText());
+        Application.launch(CodeFX.class);
     }
 }
