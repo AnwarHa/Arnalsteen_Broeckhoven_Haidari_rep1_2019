@@ -58,7 +58,7 @@ public class ShopDb {
         return sol;
     }
 
-    private void write() {
+    /*private void write() {
         String uit = "\n";
         for (Map.Entry<String, Product> m : productMap.entrySet()) {
             String instance = "";
@@ -77,36 +77,34 @@ public class ShopDb {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }*/
+
+    public void write() {
+        try {
+            FileOutputStream fileOut = new FileOutputStream(path);
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            objectOut.writeObject(productMap);
+            objectOut.close();
+            System.out.println("The "+productMap.getClass()  +" was succesfully written to a file");
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void read() {
 
         try {
-            File txt = new File(path);
-            Scanner scannerFile = new Scanner(txt);
-            while (scannerFile.hasNextLine()) {
 
-                Product product = null;
-                String uid = Integer.toString(scannerFile.nextInt());
-                scannerFile.useDelimiter(",");
-                System.out.println(uid);
-                String instance = scannerFile.next();
-                String name = scannerFile.next();
-                switch (instance) {
-                    case ("cd"):
-                        product = new Cd(name, uid);
-                        break;
-                    case ("movie"):
-                        product = new Movie(name, uid);
-                        break;
-                    case ("game"):
-                        product = new Game(name, uid);
-                        break;
-                }
-                productMap.put(uid, product);
-            }
-        } catch (Exception e) {
-            throw new DbException("Fout bij het inlezen: "+e.getMessage()+e.fillInStackTrace());
+            FileInputStream fileIn = new FileInputStream(path);
+            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+            this.productMap = (Map<String, Product>) objectIn.readObject();
+            System.out.println("The Object has been read from the file");
+            objectIn.close();
+
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
 
     }

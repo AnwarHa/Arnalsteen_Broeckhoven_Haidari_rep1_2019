@@ -1,10 +1,11 @@
 package domain;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 
-public abstract class Product implements Comparable<Product>{
+public abstract class Product implements Comparable<Product>, Serializable {
 
     private String name;
     private String id;
