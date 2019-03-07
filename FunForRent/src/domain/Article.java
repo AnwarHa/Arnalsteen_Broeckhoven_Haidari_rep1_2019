@@ -1,5 +1,7 @@
 package domain;
 
+import db.DbException;
+
 import java.util.Random;
 
 public class Article {
@@ -7,6 +9,9 @@ public class Article {
     private RentContext rentContext;
 
     public Article(String naam, String id) {
+        if(naam.trim().isEmpty() || naam == null){
+            throw new DbException("Naam mag niet leeg of NULL zijn !");
+        }
         this.naam = naam;
         this.id = id;
         rentContext = new RentContext();
@@ -33,6 +38,10 @@ public class Article {
             this.id = id;
         }
 
+    }
+
+    public String getId() {
+        return id;
     }
 
     public RentContext getRentContext(){
