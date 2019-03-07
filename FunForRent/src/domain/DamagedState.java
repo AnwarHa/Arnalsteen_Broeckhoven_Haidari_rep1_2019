@@ -1,23 +1,24 @@
 package domain;
 
 public class DamagedState implements ArticleState {
+
     @Override
-    public void rentableArticle() {
+    public void rentArticle() {
 
     }
 
     @Override
-    public void damagedArticle() {
+    public void repairArticle() {
 
     }
 
     @Override
-    public void removedArticle() {
+    public void removeArticle() {
 
     }
 
     @Override
-    public void returnedArticle() {
+    public void returnArticle() {
 
     }
 }

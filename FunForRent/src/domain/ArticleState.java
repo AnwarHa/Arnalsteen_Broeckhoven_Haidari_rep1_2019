@@ -1,9 +1,20 @@
 package domain;
 
 public interface ArticleState {
-    public void rentableArticle();
-    public void damagedArticle();
-    public void removedArticle();
-    public void returnedArticle();
+    default void rentArticle() {
+        throw new DomainException("Rent Article Default");
+    }
+
+    default void repairArticle() {
+        throw new DomainException("Repair Article Default");
+    }
+
+    default void removeArticle() {
+        throw new DomainException("Remove Article Default");
+    }
+
+    default void returnArticle() {
+        throw new DomainException("Return Article Default");
+    }
 
 }

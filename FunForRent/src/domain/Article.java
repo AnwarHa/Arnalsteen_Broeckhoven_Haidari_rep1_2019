@@ -52,26 +52,11 @@ public class Article {
         return id;
     }
 
-    @Override
-    public void rentArticle() {
-        current
-
+    public void rent(){
+        current.rentArticle();
     }
 
-    @Override
-    public void repairArticle() {
-
+    public ArticleState getCurrent() {
+        return current;
     }
-
-    @Override
-    public void removeArticle() {
-
-    }
-
-    @Override
-    public void returnArticle() {
-
-    }
-
-
 }
