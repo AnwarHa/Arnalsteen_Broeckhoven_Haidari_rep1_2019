@@ -1,7 +1,6 @@
 package ui;
 
-import domain.ArticleDB;
-import domain.RentContext;
+import db.ArticleDB;
 
 import javax.swing.*;
 
