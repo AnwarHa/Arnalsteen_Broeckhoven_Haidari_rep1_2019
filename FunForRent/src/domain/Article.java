@@ -7,7 +7,7 @@ import java.util.Random;
 public class Article {
     private String naam;
     private int id;
-    private RentContext rentContext;
+    private ArticleState damaged, removed, rentable, returned, current;
 
     public Article(String naam, int id) {
         if (naam.trim().isEmpty() || naam == null) {
@@ -18,7 +18,11 @@ public class Article {
             throw new DbException("ID mag niet 0 zijn !");
         }
         this.id = id;
-        rentContext = new RentContext();
+        damaged = new DamagedState();
+        removed = new RemovedState();
+        rentable = new RentableState();
+        returned = new ReturnedState();
+        current = rentable;
     }
 
     public Article(String naam) {
@@ -47,9 +51,27 @@ public class Article {
     public int getId() {
         return id;
     }
->>>>>>> master
 
-    public RentContext getRentContext() {
-        return rentContext;
+    @Override
+    public void rentArticle() {
+        current
+
     }
+
+    @Override
+    public void repairArticle() {
+
+    }
+
+    @Override
+    public void removeArticle() {
+
+    }
+
+    @Override
+    public void returnArticle() {
+
+    }
+
+
 }
