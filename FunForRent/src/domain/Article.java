@@ -4,18 +4,16 @@ import java.util.Random;
 
 public class Article {
     private String naam, id;
-    private String naam;
     private RentContext rentContext;
 
     public Article(String naam, String id) {
         this.naam = naam;
         this.id = id;
+        rentContext = new RentContext();
     }
 
     public Article(String naam) {
         this(naam, null);
-        setNaam(naam);
-        rentContext = new RentContext();
     }
 
     public void setNaam(String naam) {
