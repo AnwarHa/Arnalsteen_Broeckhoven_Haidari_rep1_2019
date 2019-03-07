@@ -14,5 +14,5 @@ public class ArticleDB {
             articleHashMap.put(i, a);
         }
     }
-    
+
 }
