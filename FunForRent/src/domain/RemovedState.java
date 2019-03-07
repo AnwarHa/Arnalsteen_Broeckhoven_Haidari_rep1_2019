@@ -1,7 +1,6 @@
 package domain;
 
-public class RentContext implements ArticleState {
-
+public class RemovedState implements ArticleState {
     @Override
     public void rentableArticle() {
 
