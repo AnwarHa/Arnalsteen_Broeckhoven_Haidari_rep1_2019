@@ -1,14 +1,17 @@
 package ui;
 
+import domain.ArticleDB;
 import domain.RentContext;
 
 import javax.swing.*;
 
 public class FunForRentUI {
-    RentContext rentContext;
 
-    public FunForRentUI(RentContext rentContext) {
-        this.rentContext = rentContext;
+    private ArticleDB articles;
+
+    public FunForRentUI() {
+
+        articles = new ArticleDB();
         showMenu();
     }
 
@@ -46,7 +49,7 @@ public class FunForRentUI {
     }
 
     private void showAvailableArticles() {
-        
+
     }
 
     private void returnArticle() {
