@@ -2,6 +2,8 @@ package ui;
 
 import db.ArticleDB;
 import domain.Article;
+import domain.ArticleState;
+import domain.RentableState;
 
 import javax.swing.*;
 import java.util.Map;
@@ -50,36 +52,97 @@ public class FunForRentUI {
     }
 
     private void showAvailableArticles() {
-
+        ArticleState rentable = new RentableState();
+        String name = askName();
+        String uit = "";
+        for (Map.Entry<Integer, Article> article : articles.getArticles().entrySet()) {
+            if (article.getValue().getNaam().equals(name.toLowerCase().trim())) {
+                if(article.getValue().getCurrent().equals(rentable)){
+                    uit+=article.getValue().toString();
+                }
+            }
+        }
     }
 
     private void returnArticle() {
+        String name = askName();
+        try{
+            for (Map.Entry<Integer, Article> article : articles.getArticles().entrySet()) {
+                if (article.getValue().getNaam().equals(name.toLowerCase().trim())) {
+                    article.getValue().returnArticle();
+                }
+            }
+        }catch (Exception e){
+            e.fillInStackTrace();
+            JOptionPane.showMessageDialog(null,"Article can't be returned in current state");
+        }
     }
 
     private void repairArticle() {
+        String name = askName();
+        try{
+            for (Map.Entry<Integer, Article> article : articles.getArticles().entrySet()) {
+                if (article.getValue().getNaam().equals(name.toLowerCase().trim())) {
+                    article.getValue().repairArticle();
+                }
+            }
+        }catch (Exception e){
+            e.fillInStackTrace();
+            JOptionPane.showMessageDialog(null,"Article can't be repaired in current state");
+        }
     }
 
     private void rentArticle() {
+        String name = askName();
+        try{
+            for (Map.Entry<Integer, Article> article : articles.getArticles().entrySet()) {
+                if (article.getValue().getNaam().equals(name.toLowerCase().trim())) {
+                        article.getValue().rentArticle();
+                }
+                }
+        }catch (Exception e){
+            e.fillInStackTrace();
+            JOptionPane.showMessageDialog(null,"Article can't be rent in current state");
+        }
     }
 
     private void addArticle() {
+        try{
         articles.addArticle(new Article(JOptionPane.showInputDialog("Article name:")));
+        }catch (Exception e){
+            e.fillInStackTrace();
+            JOptionPane.showMessageDialog(null,"Failed to add the article");
+        }
     }
 
     public void removeArticle(){
-        try {
-            String name = JOptionPane.showInputDialog("Article name:");
+
             for (Map.Entry<Integer, Article> article : articles.getArticles().entrySet()) {
                 if (article.getValue().getNaam().equals(name.toLowerCase().trim())) {
+                    try {
                     article.getValue().removeArticle();
-
                     articles.getArticles().remove(article.getKey());
+                    }catch (Exception e){
+                        e.fillInStackTrace();
+                        JOptionPane.showMessageDialog(null,"Article can't be removed in current state");
+                    }
                     break;
                 }
 
             }
+
+    }
+
+    public String askName(){
+        String name = "";
+        try {
+            name = JOptionPane.showInputDialog("Article name:");
+            if(name==null||name.isEmpty()){ throw new IllegalArgumentException("name is empty");}else{
+                return name;
+            }
         }catch (Exception e){
             e.fillInStackTrace();
+            JOptionPane.showMessageDialog(null,e.getMessage());
         }
     }
 }
