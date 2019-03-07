@@ -16,7 +16,7 @@ public class ShopDb {
 
     public ShopDb() {
         productMap = new HashMap<>();
-        path ="C:\\Users\\Kalimath\\Documents\\products.txt";
+        path ="C:\\Users\\Anwar\\Desktop\\fileke.txt";
         productFile = new File(path);
     }
 
