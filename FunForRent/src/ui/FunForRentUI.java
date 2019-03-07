@@ -61,6 +61,7 @@ public class FunForRentUI {
     }
 
     private void addArticle() {
+        articles.addArticle();
     }
 
     public void removeArticle(){

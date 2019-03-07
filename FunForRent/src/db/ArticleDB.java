@@ -19,9 +19,9 @@ public class ArticleDB {
         path ="C:\\Users\\Kalimath\\Desktop\\test.txt";
     }
 
-    public void voegArticleToe(int i, Article a) {
+    public void addArticle(Article a) {
         if (a != null) {
-            articleHashMap.put(i, a);
+            articleHashMap.put(a.getId(), a);
             write();
         } else {
             throw new db.DbException("Product is null");

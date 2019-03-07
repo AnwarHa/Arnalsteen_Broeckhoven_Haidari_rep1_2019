@@ -35,6 +35,8 @@ public class Article {
 
     }
 
+
+
     public RentContext getRentContext(){
         return rentContext;
     }

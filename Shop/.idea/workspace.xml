@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd8799cd-bb8f-4d28-ad83-75b8c1a16de9" name="Default Changelist" comment="" />
+    <list default="true" id="dd8799cd-bb8f-4d28-ad83-75b8c1a16de9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../FunForRent/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FunForRent/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FunForRent/src/db/ArticleDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FunForRent/src/db/ArticleDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FunForRent/src/domain/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FunForRent/src/domain/Article.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FunForRent/src/ui/FunForRentUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FunForRent/src/ui/FunForRentUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -162,9 +168,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="1411" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="1053" />
+    <option name="width" value="874" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
@@ -218,7 +224,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551972143107" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551972534368" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -284,10 +290,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5104000" />
+    <option name="totallyTimeSpent" value="5392000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1053" y="0" width="874" height="1047" extended-state="0" />
+    <frame x="1053" y="0" width="874" height="1047" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2027027" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
