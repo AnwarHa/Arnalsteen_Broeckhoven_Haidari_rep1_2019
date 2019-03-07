@@ -57,5 +57,9 @@ public class ArticleDB {
         }
 
     }
+
+    public Map<Integer, Article> getArticles(){
+        return this.articleHashMap;
+    }
     
 }

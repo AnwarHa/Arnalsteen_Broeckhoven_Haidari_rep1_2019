@@ -1,8 +1,10 @@
 package ui;
 
 import db.ArticleDB;
+import domain.Article;
 
 import javax.swing.*;
+import java.util.Map;
 
 public class FunForRentUI {
 
@@ -61,10 +63,23 @@ public class FunForRentUI {
     }
 
     private void addArticle() {
-        articles.addArticle();
+        articles.addArticle(new Article(JOptionPane.showInputDialog("Article name:")));
     }
 
     public void removeArticle(){
+        try {
+            String name = JOptionPane.showInputDialog("Article name:");
+            for (Map.Entry<Integer, Article> article : articles.getArticles().entrySet()) {
+                if (article.getValue().getNaam().equals(name.toLowerCase().trim())) {
+                    article.getValue().removeArticle();
 
+                    articles.getArticles().remove(article.getKey());
+                    break;
+                }
+
+            }
+        }catch (Exception e){
+            e.fillInStackTrace();
+        }
     }
 }
