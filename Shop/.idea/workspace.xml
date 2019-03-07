@@ -2,12 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd8799cd-bb8f-4d28-ad83-75b8c1a16de9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../FunForRent/src/ui/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FunForRent/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FunForRent/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FunForRent/src/ui/FunForRentUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FunForRent/src/ui/FunForRentUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Geheimschrift/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Geheimschrift/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Geheimschrift/out/production/Geheimschrift/ui/CodeUI.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Shop/db/ShopDb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Shop/db/ShopDb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/ShopDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/ShopDb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Shop/db/DbException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Shop/db/ShopDb.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Shop/domain/Category.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Shop/domain/Cd.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Shop/domain/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Shop/domain/Movie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Shop/domain/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Shop/domain/Shop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Shop/ui/Launcher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Shop/ui/Shopui.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,15 +37,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domain/Product.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+            <state relative-caret-position="322">
+              <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#687#688#0" expanded="true" />
-                <element signature="e#712#713#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -44,7 +52,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/db/ShopDb.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1909">
+            <state relative-caret-position="621">
               <caret line="99" column="71" selection-start-line="99" selection-start-column="71" selection-end-line="99" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -81,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ui/Shopui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1104">
-              <caret line="50" column="98" selection-start-line="50" selection-start-column="98" selection-end-line="50" selection-end-column="98" />
+            <state relative-caret-position="671">
+              <caret line="38" column="9" selection-start-line="15" selection-start-column="7" selection-end-line="38" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -171,7 +179,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="1411" />
     <option name="height" value="1047" />
@@ -182,7 +190,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -222,6 +229,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -279,7 +287,9 @@
       <workItem from="1551362606134" duration="164000" />
       <workItem from="1551369563976" duration="1445000" />
       <workItem from="1551385603382" duration="31000" />
-      <workItem from="1551954398349" duration="1091000" />
+      <workItem from="1551954398349" duration="2287000" />
+      <workItem from="1551965877691" duration="597000" />
+      <workItem from="1551970136102" duration="606000" />
     </task>
     <task id="LOCAL-00001" summary="shopui maakt maar 1 keer shop aan">
       <created>1550757201620</created>
@@ -291,13 +301,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1998000" />
+    <option name="totallyTimeSpent" value="4397000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18336888" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18763326" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -388,6 +398,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/db/DbException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
@@ -409,13 +429,6 @@
             <element signature="e#1361#1362#0" expanded="true" />
             <element signature="e#1432#1433#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/Shopui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1104">
-          <caret line="50" column="98" selection-start-line="50" selection-start-column="98" selection-end-line="50" selection-end-column="98" />
         </state>
       </provider>
     </entry>
@@ -467,7 +480,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/db/ShopDb.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1909">
+        <state relative-caret-position="621">
           <caret line="99" column="71" selection-start-line="99" selection-start-column="71" selection-end-line="99" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -475,15 +488,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/Product.java">
+    <entry file="file://$PROJECT_DIR$/src/ui/Shopui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#712#713#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="671">
+          <caret line="38" column="9" selection-start-line="15" selection-start-column="7" selection-end-line="38" selection-end-column="9" />
         </state>
       </provider>
     </entry>
