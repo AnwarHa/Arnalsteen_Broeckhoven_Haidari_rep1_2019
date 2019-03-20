@@ -1,6 +1,6 @@
 package db;
 
-import domain.Article;
+import domain.ArticleContext;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -10,16 +10,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ArticleDB {
-    private Map<Integer, Article> articleHashMap;
+    private Map<Integer, ArticleContext> articleHashMap;
 
     private String path;
 
     public ArticleDB() {
         articleHashMap = new HashMap<>();
-        path ="C:\\Users\\Kalimath\\Desktop\\test.txt";
+        path = System.getProperty("user.home") + "\\Desktop\\articles.txt";
+        read();
     }
 
-    public void addArticle(Article a) {
+    public void addArticle(ArticleContext a) {
         if (a != null) {
             articleHashMap.put(a.getId(), a);
             write();
@@ -47,7 +48,7 @@ public class ArticleDB {
 
             FileInputStream fileIn = new FileInputStream(path);
             ObjectInputStream objectIn = new ObjectInputStream(fileIn);
-            this.articleHashMap = (Map<Integer, Article>) objectIn.readObject();
+            this.articleHashMap = (Map<Integer, ArticleContext>) objectIn.readObject();
             System.out.println("The Object has been read from the file");
             objectIn.close();
 
@@ -58,7 +59,7 @@ public class ArticleDB {
 
     }
 
-    public Map<Integer, Article> getArticles(){
+    public Map<Integer, ArticleContext> getArticles(){
         return this.articleHashMap;
     }
     

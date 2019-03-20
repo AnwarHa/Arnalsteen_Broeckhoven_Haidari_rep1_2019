@@ -1,24 +1,13 @@
 package domain;
 
-public class RemovedState implements ArticleState {
-    @Override
-    public void rentArticle() {
+import java.io.Serializable;
 
-    }
+public class RemovedState implements ArticleState, Serializable {
+    private static final long serialVersionUID = 1L;
+    ArticleContext articleContext;
 
-    @Override
-    public void repairArticle() {
-
-    }
-
-    @Override
-    public void removeArticle() {
-
-    }
-
-    @Override
-    public void returnArticle() {
-
+    public RemovedState(ArticleContext articleContext) {
+        this.articleContext = articleContext;
     }
 
 }

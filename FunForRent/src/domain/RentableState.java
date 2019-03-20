@@ -1,23 +1,23 @@
 package domain;
 
-public class RentableState implements ArticleState {
-    @Override
-    public void rentableArticle() {
+import javax.swing.*;
+import java.io.Serializable;
 
+public class RentableState implements ArticleState, Serializable {
+    private static final long serialVersionUID = 1L;
+    ArticleContext articleContext;
+
+    public RentableState(ArticleContext articleContext) {
+        this.articleContext = articleContext;
+    }
+    @Override
+    public void rentArticle() {
+        articleContext.setState(articleContext.getRented());
     }
 
     @Override
-    public void damagedArticle() {
-
-    }
-
-    @Override
-    public void removedArticle() {
-
-    }
-
-    @Override
-    public void returnedArticle() {
+    public void removeArticle() {
+        articleContext.setState(articleContext.getRemoved());
 
     }
 }

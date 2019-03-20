@@ -1,7 +1,7 @@
 package ui;
 
 import db.ArticleDB;
-import domain.Article;
+import domain.ArticleContext;
 import domain.ArticleState;
 import domain.RentableState;
 
@@ -19,7 +19,7 @@ public class FunForRentUI {
     }
 
     private void showMenu() {
-        String menu = "1. Add article\n2. Rent article\n3. Repair article\n4.Return article\n5.Remove article\n6. Show available articles\n\n0. Quit app";
+        String menu = "1. Add article\n2. Rent article\n3. Repair article\n4. Return article\n5. Remove article\n6. Show available articles\n\n0. Quit app";
         int choice = -1;
         while (choice != 0) {
             String choiceString = JOptionPane.showInputDialog(menu);
@@ -49,66 +49,70 @@ public class FunForRentUI {
                     break;
             }
         }
+        articles.write();
     }
 
     private void showAvailableArticles() {
-        ArticleState rentable = new RentableState();
-        String name = askName();
         String uit = "";
-        for (Map.Entry<Integer, Article> article : articles.getArticles().entrySet()) {
-            if (article.getValue().getNaam().equals(name.toLowerCase().trim())) {
-                if(article.getValue().getCurrent().equals(rentable)){
-                    uit+=article.getValue().toString();
+
+            for (Map.Entry<Integer, ArticleContext> article : articles.getArticles().entrySet()) {
+                if (article.getValue().getCurrent() instanceof RentableState) {
+                    uit += article.getValue().toString()+'\n';
                 }
             }
+        if(uit.isEmpty()){
+            uit = "no articles to show";
         }
+            System.out.println(uit);
+            JOptionPane.showMessageDialog(null, uit);
+
     }
 
     private void returnArticle() {
         String name = askName();
         try{
-            for (Map.Entry<Integer, Article> article : articles.getArticles().entrySet()) {
+            for (Map.Entry<Integer, ArticleContext> article : articles.getArticles().entrySet()) {
                 if (article.getValue().getNaam().equals(name.toLowerCase().trim())) {
                     article.getValue().returnArticle();
                 }
             }
         }catch (Exception e){
             e.fillInStackTrace();
-            JOptionPane.showMessageDialog(null,"Article can't be returned in current state");
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Error!",JOptionPane.ERROR_MESSAGE);
         }
     }
 
     private void repairArticle() {
         String name = askName();
         try{
-            for (Map.Entry<Integer, Article> article : articles.getArticles().entrySet()) {
+            for (Map.Entry<Integer, ArticleContext> article : articles.getArticles().entrySet()) {
                 if (article.getValue().getNaam().equals(name.toLowerCase().trim())) {
                     article.getValue().repairArticle();
                 }
             }
         }catch (Exception e){
             e.fillInStackTrace();
-            JOptionPane.showMessageDialog(null,"Article can't be repaired in current state");
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Error!",JOptionPane.ERROR_MESSAGE);
         }
     }
 
     private void rentArticle() {
         String name = askName();
         try{
-            for (Map.Entry<Integer, Article> article : articles.getArticles().entrySet()) {
+            for (Map.Entry<Integer, ArticleContext> article : articles.getArticles().entrySet()) {
                 if (article.getValue().getNaam().equals(name.toLowerCase().trim())) {
                         article.getValue().rentArticle();
                 }
                 }
         }catch (Exception e){
             e.fillInStackTrace();
-            JOptionPane.showMessageDialog(null,"Article can't be rent in current state");
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Error!",JOptionPane.ERROR_MESSAGE);
         }
     }
 
     private void addArticle() {
         try{
-        articles.addArticle(new Article(JOptionPane.showInputDialog("Article name:")));
+        articles.addArticle(new ArticleContext(askName()));
         }catch (Exception e){
             e.fillInStackTrace();
             JOptionPane.showMessageDialog(null,"Failed to add the article");
@@ -116,15 +120,14 @@ public class FunForRentUI {
     }
 
     public void removeArticle(){
-
-            for (Map.Entry<Integer, Article> article : articles.getArticles().entrySet()) {
+        String name = askName();
+            for (Map.Entry<Integer, ArticleContext> article : articles.getArticles().entrySet()) {
                 if (article.getValue().getNaam().equals(name.toLowerCase().trim())) {
                     try {
                     article.getValue().removeArticle();
-                    articles.getArticles().remove(article.getKey());
                     }catch (Exception e){
                         e.fillInStackTrace();
-                        JOptionPane.showMessageDialog(null,"Article can't be removed in current state");
+                        JOptionPane.showMessageDialog(null,e.getMessage(),"Error!",JOptionPane.ERROR_MESSAGE);
                     }
                     break;
                 }
@@ -136,13 +139,12 @@ public class FunForRentUI {
     public String askName(){
         String name = "";
         try {
-            name = JOptionPane.showInputDialog("Article name:");
-            if(name==null||name.isEmpty()){ throw new IllegalArgumentException("name is empty");}else{
-                return name;
-            }
+            name = JOptionPane.showInputDialog("Enter the name of the article:");
+            if(name==null||name.isEmpty()) throw new IllegalArgumentException("name is empty");
         }catch (Exception e){
             e.fillInStackTrace();
-            JOptionPane.showMessageDialog(null,e.getMessage());
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Error!",JOptionPane.ERROR_MESSAGE);
         }
+        return name;
     }
 }
