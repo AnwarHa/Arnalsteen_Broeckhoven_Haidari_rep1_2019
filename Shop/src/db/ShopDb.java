@@ -16,7 +16,8 @@ public class ShopDb {
 
     public ShopDb() {
         productMap = new HashMap<>();
-        path ="C:\\Users\\Kalimath\\Documents\\products.txt";
+
+        path = System.getProperty("user.home") + "/Desktop//products.txt";
         productFile = new File(path);
     }
 
