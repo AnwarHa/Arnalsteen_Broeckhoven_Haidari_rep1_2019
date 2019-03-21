@@ -2,7 +2,8 @@ package ui;
 
 import db.ArticleDB;
 import domain.ArticleContext;
-import domain.ArticleState;
+import domain.DamagedState;
+import domain.DomainException;
 import domain.RentableState;
 
 import javax.swing.*;
@@ -19,7 +20,7 @@ public class FunForRentUI {
     }
 
     private void showMenu() {
-        String menu = "1. Add article\n2. Rent article\n3. Repair article\n4. Return article\n5. Remove article\n6. Show available articles\n\n0. Quit app";
+        String menu = "1. Add party item\n2. Rent party item\n3. Repair party item\n4. Return party item\n5. Remove party item\n6. Show available party items\n\n0. Quit app\n\nEnter choice:";
         int choice = -1;
         while (choice != 0) {
             String choiceString = JOptionPane.showInputDialog(menu);
@@ -63,19 +64,33 @@ public class FunForRentUI {
         if(uit.isEmpty()){
             uit = "no articles to show";
         }
-            System.out.println(uit);
             JOptionPane.showMessageDialog(null, uit);
 
     }
 
     private void returnArticle() {
-        String name = askName();
+        int  id = askId();
+        boolean returned = false;
+        ArticleContext articleContext = null;
         try{
             for (Map.Entry<Integer, ArticleContext> article : articles.getArticles().entrySet()) {
-                if (article.getValue().getNaam().equals(name.toLowerCase().trim())) {
+                if (article.getKey()==id) {
                     article.getValue().returnArticle();
+                    returned = true;
+                    articleContext = article.getValue();
+                    if(articleContext.getCurrent() instanceof DamagedState){
+                        JOptionPane.showMessageDialog(null,"You succesfully returned your damaged article, repair cost= "+(articleContext.getPrijs()*5)/3);
+                    }else if(articleContext.getCurrent() instanceof RentableState){
+                        articleContext.setState(articleContext.getRentable());
+                        JOptionPane.showMessageDialog(null,"You succesfully returned your article");
+                    }
+                    break;
                 }
             }
+
+            if(!returned){
+            throw new DomainException("no article found with that id");
+        }
         }catch (Exception e){
             e.fillInStackTrace();
             JOptionPane.showMessageDialog(null,e.getMessage(),"Error!",JOptionPane.ERROR_MESSAGE);
@@ -83,12 +98,20 @@ public class FunForRentUI {
     }
 
     private void repairArticle() {
-        String name = askName();
+        int id = askId();
+        boolean repaired = false;
         try{
             for (Map.Entry<Integer, ArticleContext> article : articles.getArticles().entrySet()) {
-                if (article.getValue().getNaam().equals(name.toLowerCase().trim())) {
+                if (article.getKey()==id) {
                     article.getValue().repairArticle();
+                    repaired = true;
+                    break;
                 }
+            }
+            if(repaired) {
+                JOptionPane.showMessageDialog(null, "Article succesfully repaired", "Succes!", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                throw new DomainException("no article found with that id");
             }
         }catch (Exception e){
             e.fillInStackTrace();
@@ -97,13 +120,22 @@ public class FunForRentUI {
     }
 
     private void rentArticle() {
-        String name = askName();
+        int id = askId();
+        boolean rent = false;
+        ArticleContext articleContext = null;
         try{
             for (Map.Entry<Integer, ArticleContext> article : articles.getArticles().entrySet()) {
-                if (article.getValue().getNaam().equals(name.toLowerCase().trim())) {
+                if (article.getKey()==id) {
                         article.getValue().rentArticle();
+                        articleContext = article.getValue();
+                        rent = true;
                 }
                 }
+            if(rent) {
+                JOptionPane.showMessageDialog(null, "Article succesfully rent, cost= "+articleContext.getPrijs(), "Succes!", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                throw new DomainException("no article found with that id");
+            }
         }catch (Exception e){
             e.fillInStackTrace();
             JOptionPane.showMessageDialog(null,e.getMessage(),"Error!",JOptionPane.ERROR_MESSAGE);
@@ -112,28 +144,34 @@ public class FunForRentUI {
 
     private void addArticle() {
         try{
-        articles.addArticle(new ArticleContext(askName()));
+            String name = askName();
+            double prijs = Double.parseDouble(JOptionPane.showInputDialog("Enter purchase price"));
+        articles.addArticle(new ArticleContext(name, prijs));
         }catch (Exception e){
             e.fillInStackTrace();
-            JOptionPane.showMessageDialog(null,"Failed to add the article");
+            JOptionPane.showMessageDialog(null,"Failed to add the article","Alert!",JOptionPane.WARNING_MESSAGE);
         }
     }
 
     public void removeArticle(){
-        String name = askName();
+        int id = askId();
+        boolean removed = false;
+        try {
             for (Map.Entry<Integer, ArticleContext> article : articles.getArticles().entrySet()) {
-                if (article.getValue().getNaam().equals(name.toLowerCase().trim())) {
-                    try {
+                if (article.getKey()==id) {
                     article.getValue().removeArticle();
+                    removed = true;
+                    break;
+                }}
+                        if(removed) {
+                            JOptionPane.showMessageDialog(null, "Article succesfully removed", "Succes!", JOptionPane.INFORMATION_MESSAGE);
+                        }else{
+                            throw new DomainException("no article found with that id");
+                        }
                     }catch (Exception e){
                         e.fillInStackTrace();
                         JOptionPane.showMessageDialog(null,e.getMessage(),"Error!",JOptionPane.ERROR_MESSAGE);
                     }
-                    break;
-                }
-
-            }
-
     }
 
     public String askName(){
@@ -146,5 +184,17 @@ public class FunForRentUI {
             JOptionPane.showMessageDialog(null,e.getMessage(),"Error!",JOptionPane.ERROR_MESSAGE);
         }
         return name;
+    }
+
+    public int askId(){
+        int id = 0;
+        try {
+            id =Integer.parseInt(JOptionPane.showInputDialog("Enter the id of the article:"));
+            if(id<0) throw new IllegalArgumentException("id is empty");
+        }catch (Exception e){
+            e.fillInStackTrace();
+            throw new DomainException("invalid id");
+        }
+        return id;
     }
 }

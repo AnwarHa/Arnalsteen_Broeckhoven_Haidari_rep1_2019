@@ -8,14 +8,13 @@ import java.util.Random;
 public class ArticleContext implements Serializable {
     private static final long serialVersionUID = 1L;
     private String naam;
+    private double prijs;
     private int id;
     private ArticleState damaged, removed, rentable, rented, current;
 
-    public ArticleContext(String naam, int id) {
-        if (naam.trim().isEmpty() || naam == null) {
-            throw new DbException("Naam mag niet leeg of NULL zijn !");
-        }
-        this.naam = naam;
+    public ArticleContext(String naam, int id, double prijs) {
+        setPrijs(prijs);
+        setNaam(naam);
         setId(id);
         damaged = new DamagedState(this);
         removed = new RemovedState(this);
@@ -24,12 +23,23 @@ public class ArticleContext implements Serializable {
         current = rentable;
     }
 
-    public ArticleContext(String naam) {
-        this(naam, 0);
+    public ArticleContext(String naam, double prijs) {
+        this(naam, 0, prijs);
+    }
+
+    public double getPrijs() {
+        return prijs;
+    }
+
+    private void setPrijs(double prijs) {
+        this.prijs = prijs/5;
     }
 
     public void setNaam(String naam) {
-        this.naam = naam;
+        if (naam.trim().isEmpty() || naam == null) {
+            throw new DbException("Naam mag niet leeg of NULL zijn !");
+        }
+        this.naam = naam.toLowerCase().trim();
     }
 
     public String getNaam() {
@@ -39,7 +49,7 @@ public class ArticleContext implements Serializable {
 
     private void setId(int id) {
         if (id == 0) {
-            this.id = new Random().nextInt(80);
+            this.id = new Random().nextInt(999);
 
         } else {
             this.id = id;
@@ -90,6 +100,6 @@ public class ArticleContext implements Serializable {
 
     @Override
     public String toString() {
-        return this.id+"-"+this.naam+": "+this.current.getClass();
+        return this.id+"-"+this.naam + " (rentprice="+this.getPrijs() +")";
     }
 }

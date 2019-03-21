@@ -16,10 +16,8 @@ public class RentedState implements ArticleState, Serializable {
         int res = JOptionPane.showConfirmDialog(null, "is the article damaged?", "article ", JOptionPane.YES_NO_CANCEL_OPTION);
         if( res == 0){
             articleContext.setState(articleContext.getDamaged());
-            JOptionPane.showMessageDialog(null,"You succesfully returned your damaged article");
         }else if(res == 1){
             articleContext.setState(articleContext.getRentable());
-            JOptionPane.showMessageDialog(null,"You succesfully returned your article");
         }
 
     }
