@@ -1,16 +1,20 @@
 package view;
 
+import domain.GameObservable;
+import domain.Observer;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class ScoreView {
+public class ScoreView implements Observer {
 	private Stage stage = new Stage();
 	private Scene scoreScene;
-	private Label scoreLabel; 
+	private Label scoreLabel;
+	private GameObservable game;
 		
-	public ScoreView(){
+	public ScoreView(GameObservable gameObservable){
+		this.game = gameObservable;
 		scoreLabel = new Label();
 		scoreLabel.setStyle("-fx-font-family: \"Courier new\"; -fx-font-size: 12; -fx-text-fill: darkred;");
 
@@ -32,5 +36,9 @@ public class ScoreView {
 	private void voegScoreLijnToe(String scoreLijn){
 		scoreLabel.setText(scoreLabel.getText()+"\n"+scoreLijn);
 	}
-	
+
+	@Override
+	public void update() {
+		voegScoreLijnToe(game.getState(this));
+	}
 }

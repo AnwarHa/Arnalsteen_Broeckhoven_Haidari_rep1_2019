@@ -1,28 +1,20 @@
 package domain;
 
-import java.util.Observable;
+import view.PlayerView;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class GameObservable extends Observable {
-    private ScoreBoard player1;
-    private ScoreBoard player2;
-    private ScoreBoard player3;
+public class GameObservable implements Observable {
+    private ScoreBoard scoreBoard = new ScoreBoard();
     private int turns = 4;
-    private ArrayList<ScoreBoard> players;
     private int currentPlayer;
     private int currentRound=1;
+    public List<Observer> playersOrder;
+    private Map<Observer,ScoreBoard> observers;
 
     public GameObservable() {
-        players = new ArrayList();
-        player1 = new ScoreBoard();
-        player2 = new ScoreBoard();
-        player3 = new ScoreBoard();
-        players.add(player1);
-        players.add(player2);
-        players.add(player3);
+        observers = new HashMap<>();
     }
 
     public void nextRound(){
@@ -38,9 +30,22 @@ public class GameObservable extends Observable {
     }
 
     public void throwDice(){
-        players.get(this.getCurrentPlayer()-1).setScore(ThreadLocalRandom.current().nextInt(2, 12 + 1));
+        observers.get(this.getCurrentPlayer()-1).setScore(ThreadLocalRandom.current().nextInt(2, 12 + 1));
+    }
+    @Override
+    public void add(Observer observer) {
+        if(observer!=null){
+            observers.put(observer,new ScoreBoard());
+        }
     }
 
+    @Override
+    public void remove(Observer observer) {
+        observers.remove(observer);
+    }
 
-
+    @Override
+    public String getState(Observer observer) {
+        return observers.get(observer).getScore()+"";
+    }
 }
