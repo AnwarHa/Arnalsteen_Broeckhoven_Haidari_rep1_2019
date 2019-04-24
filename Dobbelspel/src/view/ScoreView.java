@@ -1,6 +1,5 @@
 package view;
 
-import domain.GameObservable;
 import domain.Observer;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -8,37 +7,38 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ScoreView implements Observer {
-	private Stage stage = new Stage();
-	private Scene scoreScene;
-	private Label scoreLabel;
-	private GameObservable game;
-		
-	public ScoreView(GameObservable gameObservable){
-		this.game = gameObservable;
-		scoreLabel = new Label();
-		scoreLabel.setStyle("-fx-font-family: \"Courier new\"; -fx-font-size: 12; -fx-text-fill: darkred;");
+    private Stage stage = new Stage();
+    private Scene scoreScene;
+    private Label scoreLabel;
 
-		layoutComponents();
-		stage.setScene(scoreScene);
-		stage.setTitle("Overzicht scores");
-		stage.setResizable(false);		
-		stage.setX(100);
-		stage.setY(400);
-		stage.show();
-	}
+    private String text = "";
 
-	private void layoutComponents() {
-		VBox root = new VBox();
-		scoreScene = new Scene(root,400,200);
-		root.getChildren().add(scoreLabel);
-	}
-	
-	private void voegScoreLijnToe(String scoreLijn){
-		scoreLabel.setText(scoreLabel.getText()+"\n"+scoreLijn);
-	}
+    public ScoreView() {
+        scoreLabel = new Label();
+        scoreLabel.setStyle("-fx-font-family: \"Courier new\"; -fx-font-size: 12; -fx-text-fill: darkred;");
 
-	@Override
-	public void update() {
-		voegScoreLijnToe(game.getState(this));
-	}
+        layoutComponents();
+        stage.setScene(scoreScene);
+        stage.setTitle("Overzicht scores");
+        stage.setResizable(false);
+        stage.setX(100);
+        stage.setY(400);
+        stage.show();
+    }
+
+    private void layoutComponents() {
+        VBox root = new VBox();
+        scoreScene = new Scene(root, 400, 400);
+        root.getChildren().add(scoreLabel);
+    }
+
+    private void voegScoreLijnToe(String scoreLijn) {
+        scoreLabel.setText(scoreLabel.getText() + "\n" + scoreLijn);
+    }
+
+    @Override
+    public void update(String text) {
+        this.text += text + "\n";
+        scoreLabel.setText(this.text);
+    }
 }
