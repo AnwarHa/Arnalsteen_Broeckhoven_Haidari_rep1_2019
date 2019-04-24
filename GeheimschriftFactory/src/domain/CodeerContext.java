@@ -16,22 +16,18 @@ public class CodeerContext {
         this.text = text;
     }
 
-    public void setCodeStrategy(CodeStrategy codeStrategy){
-        if(codeStrategy==null) throw new IllegalArgumentException("code method is empty");
-        this.codeStrategy = codeStrategy;
-    }
-
-
     public String getText(){
         return this.text;
     }
 
-    public void encode(){
-        this.text = codeStrategy.encode(this.text);
+    public void encode(String strategy){
+        GeheimschriftFactory codeerFactory = new GeheimschriftFactory();
+        this.text = codeerFactory.getEncoded(strategy,text);
     }
 
-    public void decode(){
-        this.text = codeStrategy.decode(this.text);
+    public void decode(String strategy){
+        GeheimschriftFactory codeerFactory = new GeheimschriftFactory();
+        this.text = codeerFactory.getDecoded(strategy,text);
     }
 
 }

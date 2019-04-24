@@ -40,7 +40,7 @@ public class CodeFX extends Application {
         // Kies algo
         Label cb = new Label("Kies een algoritme: ");
         final ComboBox algos = new ComboBox();
-        algos.getItems().addAll("Caesar", "Spiegeling", "Vigenère Cipher");
+        algos.getItems().addAll(CodeAlgorithms.getValueNames());
         algos.getSelectionModel().selectFirst();
 
         // Resultaat
@@ -50,8 +50,8 @@ public class CodeFX extends Application {
         codeerB.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                CodeerContext cc = checkAlgo(textField, algos);
-                cc.encode();
+                CodeerContext cc = new CodeerContext(textField.getText());
+                cc.encode(algos.getValue().toString());
                 resultaat.setText(cc.getText());
             }
         });
@@ -59,9 +59,9 @@ public class CodeFX extends Application {
         // DECODE
         decodeerB.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
-                CodeerContext cc = checkAlgo(textField, algos);
-                cc.decode();
-                resultaat.setText(cc.getText());
+                CodeerContext ccd = new CodeerContext(textField.getText());
+                ccd.decode(algos.getValue().toString());
+                resultaat.setText(ccd.getText());
             }
         });
 
@@ -78,20 +78,5 @@ public class CodeFX extends Application {
         stage.setScene(mainScene);
 
         stage.show();
-    }
-
-    // CodeerContext teruggeven met juiste Strategy
-    public CodeerContext checkAlgo(TextField textField, ComboBox algos) {
-        CodeerContext cc = new CodeerContext(textField.getText());
-        if (algos.getValue().equals("Caesar")) {
-            cc.setCodeStrategy(new CaesarCipherStrategy());
-        }
-        if (algos.getValue().equals("Spiegeling")) {
-            cc.setCodeStrategy(new MirrorStrategy());
-        }
-        if (algos.getValue().equals("Vigenère Cipher")) {
-            cc.setCodeStrategy(new VigenèreCipherStrategy());
-        }
-        return cc;
     }
 }

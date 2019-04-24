@@ -1,5 +1,8 @@
 package domain;
 
+import java.net.URL;
+import java.net.URLClassLoader;
+
 public class GeheimschriftFactory {
     public String getEncoded(String method, String text){
         return createEncoded(method,text);
@@ -12,28 +15,29 @@ public class GeheimschriftFactory {
     private String createEncoded(String method, String text){
         String coded = "";
         try {
-            Class<?> strategy = Class.forName("ui." + method);
+            Class<?> strategy = Class.forName("domain." + method);
             Object o =strategy.getConstructor().newInstance();
-            String codedText = ((CodeStrategy) o).encode(text);
-            coded = codedText;
+
+                String codedText = ((CodeStrategy) o).encode(text);
+                coded = codedText;
 
         }catch (Exception e){
-
+            throw new RuntimeException(e.getMessage() + e.fillInStackTrace());
         }
         return coded;
     }
 
     private String createDecoded(String method, String text){
-        String coded = "";
+        String decoded = "";
         try {
-            Class<?> strategy = Class.forName("ui." + method);
+            Class<?> strategy = Class.forName("domain." + method);
             Object o =strategy.getConstructor().newInstance();
-            String codedText = ((CodeStrategy) o).decode(text);
-            coded = codedText;
+            String decodedText = ((CodeStrategy) o).decode(text);
+            decoded = decodedText;
 
         }catch (Exception e){
-
+            throw new RuntimeException(e.getMessage() + e.fillInStackTrace());
         }
-        return coded;
+        return decoded;
     }
 }
