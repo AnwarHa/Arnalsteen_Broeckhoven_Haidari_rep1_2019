@@ -1,6 +1,6 @@
 package domain;
 
-public class CaesarCypher implements CodeStrategy{
+public class CaesarCypherStrategy implements CodeStrategy{
     private char[] chars = {
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
             'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',

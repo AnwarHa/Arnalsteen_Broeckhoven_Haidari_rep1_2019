@@ -1,6 +1,6 @@
 package domain;
 
-public class VigenèreCypher implements CodeStrategy {
+public class VigenèreCypherStrategy implements CodeStrategy {
     private String key="VIGENERECIPHER";
     @Override
     public String encode(String text) {

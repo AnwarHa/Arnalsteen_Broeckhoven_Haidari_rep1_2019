@@ -15,11 +15,10 @@ public class GeheimschriftFactory {
     private String createEncoded(String method, String text){
         String coded = "";
         try {
-            Class<?> strategy = Class.forName("domain." + method);
+            Class<?> strategy = Class.forName("domain." + method +"Strategy");
             Object o =strategy.getConstructor().newInstance();
-
-                String codedText = ((CodeStrategy) o).encode(text);
-                coded = codedText;
+            String codedText = ((CodeStrategy) o).encode(text);
+            coded = codedText;
 
         }catch (Exception e){
             throw new RuntimeException(e.getMessage() + e.fillInStackTrace());
@@ -30,7 +29,7 @@ public class GeheimschriftFactory {
     private String createDecoded(String method, String text){
         String decoded = "";
         try {
-            Class<?> strategy = Class.forName("domain." + method);
+            Class<?> strategy = Class.forName("domain." + method +"Strategy");
             Object o =strategy.getConstructor().newInstance();
             String decodedText = ((CodeStrategy) o).decode(text);
             decoded = decodedText;

@@ -1,6 +1,6 @@
 package domain;
 
-public class Mirror implements CodeStrategy{
+public class MirrorStrategy implements CodeStrategy{
     @Override
     public String encode(String string) {
         StringBuilder stringBuilder = new StringBuilder();
