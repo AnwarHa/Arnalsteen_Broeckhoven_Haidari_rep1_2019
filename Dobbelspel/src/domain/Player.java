@@ -15,8 +15,8 @@ public class Player {
     // De speler gooit de dobbelstenen en de zowel de beurtscore als totale score wordt berekend
     public void calculateScore() {
         // Throw the dices
-        this.d1 = new Random().nextInt(6);
-        this.d2 = new Random().nextInt(6);
+        this.d1 = new Random().nextInt(6) + 1;
+        this.d2 = new Random().nextInt(6) + 1;
 
         // bereken score van de beurt zonder condities
         int score = d1 + d2;
